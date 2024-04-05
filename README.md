@@ -13,7 +13,6 @@ Basic ansible, no further dependencies.
 | `pihole_cors_hosts` | `''` | List of domains/subdomains on which CORS is allowed. Wildcards are not supported |
 | `pihole_password` | `''` | Default web password. If not set, a random one will be set for you |
 | `pihole_timezone` | `''` | Timezone, if set |
-
 | `pihole_container_image` | `'docker.io/pihole/pihole:latest'` | Container image to be used |
 | `pihole_config_dir` | `'/etc/pihole'` | Configuration directory |
 | `pihole_data_dir` | `'/srv/pihole'` | Data directory |
