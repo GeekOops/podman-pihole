@@ -1,0 +1,46 @@
+---
+# tasks file for pihole
+
+- name: Ensure pihole directory exists
+  file:
+    path: "{{pihole_data_dir}}"
+    state: directory
+    owner: '1000'
+    group: '1000'
+    mode: '0750'
+
+- name: Ensure dnsmasq directory exists
+  file:
+    path: "{{pihole_data_dir}}/dnsmasq"
+    state: directory
+    owner: '1000'
+    group: '1000'
+    mode: '0750'
+
+- name: Ensure etc directory exists
+  file:
+    path: "{{pihole_config_dir}}"
+    state: directory
+    owner: '999'
+    group: '1000'
+    mode: '0750'
+
+- name: Ensure pihole systemd service is up-to-date
+  template:
+    src: service.j2
+    dest: /etc/systemd/system/pihole.service
+    owner: root
+    group: root
+    mode: '0644'
+    force: yes
+  register: pihole_service
+
+- name: Reload systemd
+  shell: systemctl daemon-reload
+  when: pihole_service.changed
+
+- name: Ensure pihole is started and enabled
+  systemd:
+    name: pihole
+    state: started
+    enabled: true

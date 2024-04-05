@@ -1,0 +1,20 @@
+---
+# defaults file for podman-pihole
+
+pihole_container_image: 'docker.io/pihole/pihole:latest'
+pihole_config_dir: '/etc/pihole'
+pihole_data_dir: '/srv/pihole'
+pihole_service_name: 'pihole'
+pihole_auto_update: true
+pihole_container_network: 'podman'
+pihole_container_ip: ''
+pihole_cors_hosts: ''
+
+pihole_password: ''
+pihole_timezone: ''
+
+pihole_mem_limit: '512M'
+pihole_publish:
+  - 127.0.0.1:53:53/udp
+  - 127.0.0.1:53:53/tcp
+  - 127.0.0.1:80:80/tcp

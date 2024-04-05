@@ -1,0 +1,24 @@
+galaxy_info:
+  author: phoenix
+  description: Deploy pihole as podman systemd service
+
+  issue_tracker_url: https://github.com/GeekOops/podman-pihole/issues
+
+  license: MIT
+
+  min_ansible_version: 2.1
+
+  platforms:
+    - name: opensuse
+      versions:
+        - tumbleweed
+        - microos
+        - 5.5
+        - 5.4
+        - 15.6
+        - 15.5
+        - 15.4
+
+  galaxy_tags: ['pihole']
+
+dependencies: []
